@@ -1,4 +1,5 @@
 React -- A JS library for building UI
+
 Components - used to build user interfaces
 
 ReactDOM - interface to the Web
@@ -44,3 +45,5 @@ Error Boundary -=> class based components with componentDidCatch() lifecycle met
 			There is no equivivalent feature available in functional components.
 
    ex scenarios - HTTP requests
+
+   this is the END!
