@@ -1,0 +1,46 @@
+React -- A JS library for building UI
+Components - used to build user interfaces
+
+ReactDOM - interface to the Web
+
+Props - Data pass from components - Parent -Child communication
+State - internal data - 
+
+Context - component wide data
+
+virtual DOM - React determine what a component tree currently look like and what is should look like after component update
+==>
+ReactDOm - receives the differences (ie required changes) and then manipulate the real DOM
+
+Re-evaluating components !== Re-rendering the DOM
+-------------------------------------------------
+Components  <= Re-evaluated whenever props, state or context changes => React executes component functions
+
+Real DOM - Changes to the Real DOM are only made for differences between evaluations
+
+Virtual DOM Diffing => finding out the difference between to snapshots
+
+--
+React.memo() -- optimize the performance by restricting the child component re-evaluation to when the props changes
+--it works with the premitive types - string/number/boolean but not with the functions(pointers) - functions are objects in JS
+
+--useCallback() -- allows React.memo() to work on functions. It store the function and only re-create the function upon component re-evaluation if the set dependency changes
+
+--useMemo()
+
+/*
+ Class based component lifecycle methods
+ componentDidMount() - called once component mounted (was evaluated and rendered) ->
+                         this is equivelant to useEffect(..., []) with no dependency in function components
+ componentDidUpdate() - called once component updated (was re-evaluated and re-rendered) - >  
+                        equivelant to useEffect(..., [somevalue]) with some dependency
+ componentWillUnmount() - called right before the component is unmounted (removed from DOM) -> 
+                        equivelant to useEffect( () => {return () =>{...}}. []) - cleanup function from useEffect 
+                        - this is called before the useEffect is executed again and also always again 
+                        when the component is about to be removed from the DOM
+*/
+
+Error Boundary -=> class based components with componentDidCatch() lifecycle method. this is similar to try..catch() block in regular JS.
+			There is no equivivalent feature available in functional components.
+
+   ex scenarios - HTTP requests
