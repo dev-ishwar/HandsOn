@@ -1,2 +1,2 @@
 new file
-This file was also updated in github directly.
+This file was also updated in github directly from a diff user.
